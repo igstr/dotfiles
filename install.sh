@@ -8,15 +8,16 @@ dir=$(pwd)
 backupDir=~/dotfiles_old
 
 # List of files/folders to symlink in homedir
-files=$(ls --ignore=install.sh)
+filesToIgnore="README.md|install.sh"
+files=$(ls | grep -Ev "$filesToIgnore")
 
-# Move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
+# Move any existing dotfiles in homedir to backupDir directory, then create symlinks
 for file in $files; do
 
-    oldfile=~/.$file
+    oldFile=~/.$file
 
     # If file exist moves it to backup directory
-    if [ -f $oldfile ]; then
+    if [ -a $oldFile ]; then
 
         # If needed create backup directory
         if [ ! -d $backupDir ]; then
@@ -24,11 +25,12 @@ for file in $files; do
         fi
 
         echo "Moving $oldFile from ~ to $backupDir"
-        mv $oldfile $backupDir
+        mv $oldFile $backupDir
     fi
 
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    # f - needed for broken symlinks. They are not detected by if [ -a ]
+    ln -sf $dir/$file ~/.$file
 done
 
 echo "Done."
