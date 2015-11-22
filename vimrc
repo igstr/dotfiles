@@ -5,11 +5,10 @@ filetype plugin indent on
 set nocompatible
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GENERAL
 
 " Sets how many lines of history VIM has to remember
-set history=700
+set history=1000
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -17,99 +16,82 @@ set autoread
 " Leader key remap
 let mapleader = ","
 let g:mapleader = ","
+
+" Longer timeout
 "set timeout timeoutlen=1500
-
-" Fast saving
-" nmap <leader>w :w!<cr>
-
-" Search for selected word
-vnoremap // y/<C-R>"<CR>"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"syntax
-syntax on
-
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=4
-
-" Turn on the WiLd menu
-set wildmenu
-
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-
-" Always show current position
-set ruler
-
-" Show line numbers
-" set number
-set relativenumber
-
-" Relative/absolute line numbers toggle
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set norelativenumber
-    else
-        set relativenumber
-    endif
-endfunc
-nnoremap <leader>nt :call NumberToggle()<cr>
-
-" Line wraping
-set nowrap
-
-" Height of the command bar
-set cmdheight=2
-
-" A buffer becomes hidden when it is abandoned
-set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" Ignore case when searching
-set ignorecase
+" A buffer becomes hidden when it is abandoned
+set hidden
 
-" When searching try to be smart about cases
-set smartcase
+" Turn swapfiles off
+set noswapfile
 
-" Highlight search results
-set hlsearch
+" Command-line completion
+set wildmenu
 
-" Makes search act like search in modern browsers
-set incsearch
+" No error sound
+set visualbell
 
-" Don't redraw while executing macros (good performance config)
+" Don't redraw while executing macros. Better performance!
 set lazyredraw
 
-" For regular expressions turn magic on
-set magic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SCROLLING
 
-" Show matching brackets when text indicator is over them
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
+" Start scrolling when we're 4 lines away from margins
+set scrolloff=4
+set sidescrolloff=15
+set sidescroll=1
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FOLDS
 
-" Status line at the bottom
-set laststatus=2
-"set statusline=%f "tail of the filename
-"set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+" Fold based on indent
+set foldmethod=indent
+
+" Deepest fold is 3 levels
+set foldnestmax=3
+
+" Dont fold by default
+set nofoldenable
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UI
+
+"syntax
+syntax on
+
+" Always show current position
+set ruler
+
+" Show line numbers
+set number
 
 " Highlight current line
 " set cul
 
+" Show relative line numbers
+set relativenumber
+
+" Line wraping
+set nowrap
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" Always show status line at the bottom
+set laststatus=2
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLORS AND FONTS
+
 " Enable syntax highlighting
 syntax on
 
@@ -130,61 +112,43 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" Highlight extra whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SEARCH
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-" set nobackup
-" set nowb
-set noswapfile
+" INDENTATION
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
-set smarttab
-
-" 1 tab == 4 spaces
+" 1 tab = 4 spaces
 set shiftwidth=4
+set softtabstop=4
 set tabstop=4
+
+" Be smart
+set autoindent
+set smartindent
+set smarttab
 
 " Show tabs as charachrers
 set list
 set listchars=tab:>-
 
-" Remove all trailing whitespace
-:command RemoveTrailingWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-" :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" GitGutter
-set updatetime=1000
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" USEFUL THINGS
 
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
@@ -209,10 +173,65 @@ function! AutoHighlightToggle()
     endif
 endfunction
 
+" Search for selected word
+vnoremap // y/<C-R>"<CR>"
+
+" Remove all trailing whitespace
+:command RemoveTrailingWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Relative/absolute line numbers toggle
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set norelativenumber
+    else
+        set relativenumber
+    endif
+endfunc
+nnoremap <leader>nt :call NumberToggle()<cr>
+
+" Highlight extra whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN SETTINGS
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tagbar
+
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GitGutter
+
+set updatetime=1000
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDtree
+
 map <C-\> :NERDTreeToggle<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Omni completion
+
+" Move up/down remap
 "inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Down>"
@@ -220,7 +239,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
+
 nnoremap <leader>gs :Gstatus<CR>
 " nnoremap <leader>ga :Git add %:p<CR><CR>
 " nnoremap <leader>gc :Gcommit -v -q<CR>
@@ -237,7 +258,35 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 " nnoremap <leader>gps :Dispatch! git push<CR>
 " nnoremap <leader>gpl :Dispatch! git pull<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easymotion
-map f <Leader><Leader>f
-" map <C-O> <Leader><Leader>w
-" map <C-E> <Leader><Leader>W
+
+" map <C-k> <Leader><Leader>b
+" map <C-j> <Leader><Leader>w
+" map f <Leader><Leader>f
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Unite
+
+" nnoremap <F4> :Unite file file_rec buffer<CR>
+nnoremap <leader>U :Unite file file_rec buffer<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Aairline
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ }
+let g:airline_section_x = ''
