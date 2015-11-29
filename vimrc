@@ -18,7 +18,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Longer timeout
-"set timeout timeoutlen=1500
+set timeout timeoutlen=1500
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -33,8 +33,8 @@ set noswapfile
 " Command-line completion
 set wildmenu
 
-" No error sound
-set visualbell
+" No error sound/flash
+set noerrorbells
 
 " Don't redraw while executing macros. Better performance!
 set lazyredraw
@@ -45,7 +45,7 @@ set lazyredraw
 " Start scrolling when we're 4 lines away from margins
 set scrolloff=4
 set sidescrolloff=15
-set sidescroll=1
+set sidescroll=30
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FOLDS
@@ -268,8 +268,23 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Unite
 
-" nnoremap <F4> :Unite file file_rec buffer<CR>
-nnoremap <leader>U :Unite file file_rec buffer<CR>
+nnoremap <leader>uf :<C-u>Unite file_rec -start-insert<CR>
+nnoremap <leader>ub :<C-u>Unite buffer -start-insert<CR>
+nnoremap <leader>ug :<C-u>Unite grep:.<CR>
+
+if executable('pt')
+    let g:unite_source_grep_command='pt'
+    let g:unite_source_grep_default_opts='-i --nogroup --nocolor'
+    let g:unite_source_grep_recursive_opt=''
+    let g:unite_source_grep_encoding='utf-8'
+else
+    let g:unite_source_grep_default_opts="-li"
+endif
+
+" call unite#custom#profile('default', 'context', {
+" \   'start-insert': 1,
+" \ })
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Aairline
