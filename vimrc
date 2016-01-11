@@ -148,6 +148,16 @@ set list
 set listchars=tab:>-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CUSTOM MAPPINGS
+
+" <S-k> puts vim to background and runs command under the cursor.
+" I sometimes hit this accidentally and never on purpose.
+map <S-k> <Nop>
+
+" Paste toggle shortcut. Useful then pasting from system clipboard
+set pastetoggle=<F2>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " USEFUL THINGS
 
 " Highlight all instances of word under cursor, when idle.
