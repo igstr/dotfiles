@@ -46,3 +46,6 @@
 [submodule "vimproc.vim"]
     path = vim/bundle/vimproc.vim
     url = https://github.com/Shougo/vimproc.vim.git
+[submodule "better-indent-support-for-php-with-html"]
+    path = vim/bundle/better-indent-support-for-php-with-html
+    url = https://github.com/captbaritone/better-indent-support-for-php-with-html.git
