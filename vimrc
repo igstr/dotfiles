@@ -98,19 +98,36 @@ syntax on
 set background=dark
 colorscheme monokai
 
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GUI SETTINGS
+
+if has('gui_running')
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+
+    set t_Co=256
+    set guitablabel=%M\ %t
+
+    " set block cursor
+    set guicursor=n-v-c-i:block-Cursor
+    " turn off cursor blink
+    set guicursor+=a:blinkon0
+
+    " set font
+    if has('gui_win32')
+        set guifont=DejaVu_Sans_Mono:h8:cANSI
+    else
+        set guifont=DejaVu\ Sans\ Mono\ 8
+    endif
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SEARCH
