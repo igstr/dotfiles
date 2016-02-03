@@ -331,4 +331,13 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '' : 'S',
     \ }
-let g:airline_section_x = ''
+let g:airline_section_x=''
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CloseTag
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" delimitMate
+" removed <:> pair because delimitMate inteferes with closeTag
+let delimitMate_matchpairs = "(:),[:],{:}"
