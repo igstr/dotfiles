@@ -266,7 +266,7 @@ map <C-\> :NERDTreeToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
 
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Gstatus<CR><C-w>10+
 " nnoremap <leader>ga :Git add %:p<CR><CR>
 " nnoremap <leader>gc :Gcommit -v -q<CR>
 " nnoremap <leader>gt :Gcommit -v -q %:p<CR>
