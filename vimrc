@@ -283,13 +283,6 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 " nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Easymotion
-
-" map <C-k> <Leader><Leader>b
-" map <C-j> <Leader><Leader>w
-" map f <Leader><Leader>f
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Unite
 
 nnoremap <leader>uf :<C-u>Unite file_rec -start-insert<CR>
