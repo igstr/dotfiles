@@ -177,6 +177,14 @@ set pastetoggle=<F2>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " USEFUL THINGS
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Omni completion
+
+"inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
 " Type z/ to toggle highlighting on/off.
@@ -254,17 +262,6 @@ let g:syntastic_check_on_wq = 0
 " NERDtree
 
 map <C-\> :NERDTreeToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Omni completion
-
-" Move up/down remap
-"inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
