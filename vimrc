@@ -211,8 +211,11 @@ endfunction
 " Search for selected word
 vnoremap // y/<C-R>"<CR>"
 
+" Delete buffer without closing the window
+command BD bp|bd #
+
 " Remove all trailing whitespace
-:command RemoveTrailingWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+command RemoveTrailingWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Relative/absolute line numbers toggle
