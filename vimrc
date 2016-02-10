@@ -293,9 +293,17 @@ nnoremap <leader>uf :<C-u>Unite file_rec/async -start-insert<CR>
 nnoremap <leader>ub :<C-u>Unite buffer -start-insert<CR>
 nnoremap <leader>ug :<C-u>Unite grep:.<CR>
 
-if executable('pt')
+if executable('ag')
+    let g:unite_source_rec_async_command =
+    \ ['ag', '--follow', '--nocolor', '--nogroup',
+    \  '--hidden', '-g', '']
+    let g:unite_source_grep_command='ag'
+    let g:unite_source_grep_default_opts='--vimgrep --smart-case'
+    let g:unite_source_grep_recursive_opt=''
+    let g:unite_source_grep_encoding='utf-8'
+elseif executable('pt')
     let g:unite_source_grep_command='pt'
-    let g:unite_source_grep_default_opts='-i --nogroup --nocolor'
+    let g:unite_source_grep_default_opts='--nogroup --nocolor --smart-case'
     let g:unite_source_grep_recursive_opt=''
     let g:unite_source_grep_encoding='utf-8'
 else
@@ -338,7 +346,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php"
 let delimitMate_matchpairs = "(:),[:],{:}"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ag
+" Ag.vim
 if !executable('ag')&&executable('pt')
     let g:ag_prg="pt --nogroup --column --smart-case"
 endif
