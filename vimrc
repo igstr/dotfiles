@@ -289,7 +289,7 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Unite
 
-nnoremap <leader>uf :<C-u>Unite file_rec -start-insert<CR>
+nnoremap <leader>uf :<C-u>Unite file_rec/async -start-insert<CR>
 nnoremap <leader>ub :<C-u>Unite buffer -start-insert<CR>
 nnoremap <leader>ug :<C-u>Unite grep:.<CR>
 
@@ -333,5 +333,12 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " delimitMate
+
 " removed <:> pair because delimitMate inteferes with closeTag
 let delimitMate_matchpairs = "(:),[:],{:}"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ag
+if !executable('ag')&&executable('pt')
+    let g:ag_prg="pt --nogroup --column --smart-case"
+endif
