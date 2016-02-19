@@ -127,6 +127,10 @@ if has('gui_running')
     else
         set guifont=DejaVu\ Sans\ Mono\ 8
     endif
+
+    " maximize window on start
+    " au GUIEnter * simalt ~x
+    " set lines=999 columns=999
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -292,6 +296,10 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 nnoremap <leader>uf :<C-u>Unite file_rec/async -start-insert<CR>
 nnoremap <leader>ub :<C-u>Unite buffer -start-insert<CR>
 nnoremap <leader>ug :<C-u>Unite grep:.<CR>
+nnoremap <leader>ur :<C-u>Unite register<CR>
+nnoremap <leader>us :<C-u>Unite source<CR>
+nnoremap <leader>uj :<C-u>Unite jump<CR>
+nnoremap <leader>uo :<C-u>Unite output/shellcmd<CR>
 
 if executable('ag')
     let g:unite_source_rec_async_command =
