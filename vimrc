@@ -89,6 +89,9 @@ set mat=2
 " Always show status line at the bottom
 set laststatus=2
 
+" Ruler
+set colorcolumn=80
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS AND FONTS
 
