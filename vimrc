@@ -43,7 +43,7 @@ set lazyredraw
 " SCROLLING
 
 " Start scrolling when we're 4 lines away from margins
-set scrolloff=4
+set scrolloff=6
 set sidescrolloff=15
 set sidescroll=30
 
@@ -91,6 +91,9 @@ set laststatus=2
 
 " Ruler
 set colorcolumn=80
+
+" Enable mouse
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS AND FONTS
@@ -151,6 +154,9 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
+" Do not wrap around
+set nowrapscan
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INDENTATION
 
@@ -179,7 +185,7 @@ set listchars=tab:>-
 map <S-k> <Nop>
 
 " Paste toggle shortcut. Useful then pasting from system clipboard
-set pastetoggle=<F2>
+set pastetoggle=<F7>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Completion popup
@@ -309,7 +315,7 @@ if executable('ag')
     \ ['ag', '--follow', '--nocolor', '--nogroup',
     \  '--hidden', '-g', '']
     let g:unite_source_grep_command='ag'
-    let g:unite_source_grep_default_opts='--vimgrep --smart-case'
+    let g:unite_source_grep_default_opts='--nogroup --nocolor --smart-case'
     let g:unite_source_grep_recursive_opt=''
     let g:unite_source_grep_encoding='utf-8'
 elseif executable('pt')
