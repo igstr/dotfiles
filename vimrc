@@ -92,9 +92,6 @@ set laststatus=2
 " Ruler
 set colorcolumn=80
 
-" Enable mouse
-set mouse=a
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS AND FONTS
 
@@ -228,6 +225,9 @@ vnoremap // y/<C-R>"<CR>"
 " Delete buffer without closing the window
 command BD bp|bd #
 
+" Delete forward mapping
+inoremap <C-d> <Del>
+
 " Remove all trailing whitespace
 command RemoveTrailingWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -258,6 +258,7 @@ autocmd BufWinLeave * call clearmatches()
 
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GitGutter
@@ -279,6 +280,9 @@ let g:syntastic_check_on_wq = 0
 " NERDtree
 
 map <C-\> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeMapOpenVSplit='i'
+let NERDTreeMapOpenSplit='s'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
