@@ -43,7 +43,7 @@ set lazyredraw
 " SCROLLING
 
 " Start scrolling when we're 4 lines away from margins
-set scrolloff=6
+set scrolloff=2
 set sidescrolloff=15
 set sidescroll=30
 
@@ -69,7 +69,7 @@ syntax on
 set ruler
 
 " Show line numbers
-set number
+" set number
 
 " Highlight current line
 " set cul
@@ -89,7 +89,7 @@ set mat=2
 " Always show status line at the bottom
 set laststatus=2
 
-" Ruler
+" 80 column rule
 set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
