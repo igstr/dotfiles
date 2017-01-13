@@ -357,16 +357,6 @@ let g:airline_mode_map = {
 let g:airline_section_x=''
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CloseTag
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" delimitMate
-
-" removed <:> pair because delimitMate inteferes with closeTag
-let delimitMate_matchpairs = "(:),[:],{:}"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ag.vim
 if !executable('ag')&&executable('pt')
     let g:ag_prg="pt --nogroup --column --smart-case"
