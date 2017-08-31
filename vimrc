@@ -62,15 +62,6 @@ syntax on
 " Always show current position
 set ruler
 
-" Show line numbers
-" set number
-
-" Highlight current line
-" set cul
-
-" Show relative line numbers
-set relativenumber
-
 " Line wraping
 set nowrap
 
