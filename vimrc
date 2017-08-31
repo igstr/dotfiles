@@ -245,38 +245,6 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 " nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Unite
-
-nnoremap <leader>uf :<C-u>Unite file_rec/async -start-insert<CR>
-nnoremap <leader>ub :<C-u>Unite buffer -start-insert<CR>
-nnoremap <leader>ug :<C-u>Unite grep:.<CR>
-nnoremap <leader>ur :<C-u>Unite register<CR>
-nnoremap <leader>us :<C-u>Unite source<CR>
-nnoremap <leader>uj :<C-u>Unite jump<CR>
-nnoremap <leader>uo :<C-u>Unite output/shellcmd<CR>
-
-if executable('ag')
-    let g:unite_source_rec_async_command =
-    \ ['ag', '--follow', '--nocolor', '--nogroup',
-    \  '--hidden', '-g', '']
-    let g:unite_source_grep_command='ag'
-    let g:unite_source_grep_default_opts='--nogroup --nocolor --smart-case'
-    let g:unite_source_grep_recursive_opt=''
-    let g:unite_source_grep_encoding='utf-8'
-elseif executable('pt')
-    let g:unite_source_grep_command='pt'
-    let g:unite_source_grep_default_opts='--nogroup --nocolor --smart-case'
-    let g:unite_source_grep_recursive_opt=''
-    let g:unite_source_grep_encoding='utf-8'
-else
-    let g:unite_source_grep_default_opts="-li"
-endif
-
-" call unite#custom#profile('default', 'context', {
-" \   'start-insert': 1,
-" \ })
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 
 " Open buffer tab by default

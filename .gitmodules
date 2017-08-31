@@ -16,9 +16,6 @@
 [submodule "vim/bundle/tcomment_vim"]
     path = vim/bundle/tcomment_vim
     url = https://github.com/tomtom/tcomment_vim.git
-[submodule "vim/bundle/unite.vim"]
-    path = vim/bundle/unite.vim
-    url = https://github.com/Shougo/unite.vim.git
 [submodule "vim/bundle/vim-airline"]
     path = vim/bundle/vim-airline
     url = https://github.com/bling/vim-airline.git
@@ -37,9 +34,6 @@
 [submodule "vim/bundle/vim-unimpaired"]
     path = vim/bundle/vim-unimpaired
     url = https://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/vimproc.vim"]
-    path = vim/bundle/vimproc.vim
-    url = https://github.com/Shougo/vimproc.vim.git
 [submodule "vim/bundle/better-indent-support-for-php-with-html"]
     path = vim/bundle/better-indent-support-for-php-with-html
     url = https://github.com/captbaritone/better-indent-support-for-php-with-html.git
