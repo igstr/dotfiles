@@ -170,9 +170,6 @@ set pastetoggle=<F7>
 " insert only longest matching part
 set completeopt=longest,menuone
 
-inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " USEFUL THINGS
 
