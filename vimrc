@@ -32,6 +32,9 @@ set noswapfile
 
 " Command-line completion
 set wildmenu
+"
+" Don't fold automatically
+set foldmethod=manual
 
 " No error sound/flash
 set noerrorbells
@@ -46,12 +49,6 @@ set lazyredraw
 set scrolloff=2
 set sidescrolloff=15
 set sidescroll=30
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FOLDS
-
-" Fold based on indent
-set foldmethod=manual
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI
