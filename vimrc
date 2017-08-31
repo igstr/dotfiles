@@ -321,6 +321,14 @@ endif
 " \   'start-insert': 1,
 " \ })
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
+
+" Open buffer tab by default
+let g:ctrlp_cmd = 'CtrlPBuffer'
+
+" Don't switch to opened buffer
+let g:ctrlp_switch_buffer = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Aairline
