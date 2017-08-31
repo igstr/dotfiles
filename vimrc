@@ -51,13 +51,7 @@ set sidescroll=30
 " FOLDS
 
 " Fold based on indent
-set foldmethod=indent
-
-" Deepest fold is 3 levels
-set foldnestmax=3
-
-" Dont fold by default
-set nofoldenable
+set foldmethod=manual
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI
