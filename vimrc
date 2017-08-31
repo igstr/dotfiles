@@ -103,13 +103,10 @@ if has('gui_running')
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
 
-    set t_Co=256
     set guitablabel=%M\ %t
 
     " set block cursor
     set guicursor=n-v-c-i:block-Cursor
-    " turn off cursor blink
-    set guicursor+=a:blinkon0
 
     " set font
     if has('gui_win32')
@@ -117,10 +114,6 @@ if has('gui_running')
     else
         set guifont=DejaVu\ Sans\ Mono\ 8
     endif
-
-    " maximize window on start
-    " au GUIEnter * simalt ~x
-    " set lines=999 columns=999
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
