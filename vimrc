@@ -310,9 +310,3 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 let g:airline_section_x=''
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ag.vim
-if !executable('ag')&&executable('pt')
-    let g:ag_prg="pt --nogroup --column --smart-case"
-endif
